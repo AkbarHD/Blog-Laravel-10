@@ -1,0 +1,44 @@
+@foreach ($articles as $item)
+<tr>
+    <td>{{ $loop->iteration }}</td>
+    <td>{{ $item->title }}</td>
+    <td>{{ $item->Category->name }}</td> <!-- relasi category -->
+    <td>{{ $item->view }}</td>
+    @if ($item->status == 0)
+        <td>
+            <span class="badge bg-danger">Private</span>
+        </td>
+    @else
+        <td>
+            <span class="badge bg-success">Published</span>
+        </td>
+    @endif
+    <td>{{ $item->publish_date }}</td>
+    <td>
+        <div class="text-center">
+            <a href="" class="btn btn-success">Detail</a>
+            <a href="" class="btn btn-warning">Edit</a>
+            <a href="" class="btn btn-danger">Delete</a>
+        </div>
+    </td>
+</tr>
+@endforeach
+
+
+
+
+{{-- session success --}}
+@if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
+
+{{-- session delete --}}
+@if (session('delete'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('delete') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif

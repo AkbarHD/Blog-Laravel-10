@@ -1,0 +1,32 @@
+function HitungIndeksHari(tanggal: Integer): Integer;
+begin
+    // Hitung hari julian dari tanggal
+    // ...
+
+    // Hitung indeks hari berdasarkan hari julian
+    // ...
+
+    // Kembalikan indeks hari
+    // ...
+end;
+
+procedure Main;
+var
+    tanggal: Integer;
+    indeksHari: Integer;
+begin
+    Write('Masukkan tanggal: ');
+    ReadLn(tanggal);
+
+    indeksHari := HitungIndeksHari(tanggal);
+
+    case indeksHari of
+        0: WriteLn('Minggu');
+        1: WriteLn('Senin');
+        2: WriteLn('Selasa');
+        3: WriteLn('Rabu');
+        4: WriteLn('Kamis');
+        5: WriteLn('Jumat');
+        6: WriteLn('Sabtu');
+    end;
+end.

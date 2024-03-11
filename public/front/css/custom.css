@@ -1,0 +1,27 @@
+.ukuran-img{
+width: 100%;
+height: 400px !important;
+object-fit: cover;
+background-size: cover;
+}
+
+.ukuran-post{
+width: 100%;
+height: 290px;
+/* object-fit: cover; */
+background-size: cover;
+}
+
+.card-height{ /* utk mngatur tinggi card body */
+height: 280px;
+position: relative;
+}
+
+img{ /* utk mengatasi gamabr dari ckeditor versi 5 */
+max-width: 100%;
+height: auto !important;
+}
+
+.unstyle-categories{
+text-decoration: none;
+}
