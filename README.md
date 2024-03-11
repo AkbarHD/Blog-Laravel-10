@@ -24,3 +24,12 @@ Blog yang membahas seputar bahasa pemrograman dan teknologi terkeni
 ## Tech Stack
 
 Aplikasi ini dibangun dengan menggunakan:
+- [xampp](https://www.apachefriends.org/download.html)
+- HTML & CSS
+- [Bootstrap](https://getbootstrap.com/)
+- [composer](https://getcomposer.org/)
+- [Larvel UI](https://github.com/laravel/ui)
+- [Laravel - 10](https://laravel.com/)
+- [Yajra Tables](https://yajrabox.com/)
+- [Datatables](https://datatables.net/)
+- [CK Editor](https://ckeditor.com/)
