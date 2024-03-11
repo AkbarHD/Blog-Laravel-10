@@ -33,3 +33,53 @@ Aplikasi ini dibangun dengan menggunakan:
 - [Yajra Tables](https://yajrabox.com/)
 - [Datatables](https://datatables.net/)
 - [CK Editor](https://ckeditor.com/)
+
+## Requirement
+- XAMPP >= 8.1
+- Bootsrap 5
+
+## Setup Aplikasi 
+Install the dependencies and devDependencies and start the server.
+#### Jalankan Perintah
+```sh
+composer update
+atau
+composer isntall
+```
+
+#### Copy file .env dari .env.example
+```sh
+cp .env.example .env
+```
+
+#### Konfigurasi file .env
+```sh
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=blog-laravel10
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+#### Generate key
+```sh
+php artisan key:generate
+```
+
+#### Generate key
+```sh
+php artisan migrate
+```
+
+#### Seeder table User, Pengaturan
+```sh
+php artisan db:seed
+```
+
+#### Menjalankan aplikasi
+```sh
+php artisan serve
+```
+
+# TETAP ILMU PADI🔥🔥🔥
