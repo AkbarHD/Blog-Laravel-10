@@ -26,7 +26,7 @@
                         <div class="card-body">
                             <div class="text-center">
                                 <span>
-                                    <a href="{{ 'category/' . $item->slug }}" class="text-decoration-none text-dark">
+                                    <a href="{{ url('category/' . $item->slug) }}" class="text-decoration-none text-dark">
                                         <i class="fa-solid fa-folder fa-4x"></i>
                                     </a>
                                 </span>

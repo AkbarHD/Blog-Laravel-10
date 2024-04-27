@@ -16,6 +16,7 @@ class Category extends Model
 
     // relasi has many category -> artikel
     // 1 kategori bisa di pakai bnyk artikel
+    // ini untuk all category
     public function Articles(): HasMany
     {
         return $this->hasMany(Article::class);
