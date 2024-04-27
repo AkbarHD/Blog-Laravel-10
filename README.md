@@ -9,7 +9,7 @@
 
 
 # Blog Laravel-10
-Blog yang membahas seputar bahasa pemrograman dan teknologi terkeni
+Proyek ini adalah blog yang dibangun menggunakan framework Laravel 10, yang bertujuan untuk memberikan platform bagi penulis dan pembaca untuk berbagi dan membaca artikel seputar bahasa pemrograman, teknologi, dan topik terkait lainnya
 
 ## Features Aplikasi Laravel Blog
 
