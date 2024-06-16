@@ -38,7 +38,7 @@ Route::get('/contact', [ContactController::class, 'index']);
 // detail aricle front
 Route::get('/p/{slug}', [FrontArticleController::class, 'show']);
 Route::get('/articles', [FrontArticleController::class, 'index']);
-Route::post('/article/search', [FrontArticleController::class, 'index'])->name('search'); // mantepp pake ini jadi 
+Route::post('/article/search', [FrontArticleController::class, 'index'])->name('search'); // mantepp pake ini jadi
 
 // Category
 Route::get('/category/{slug}', [FrontCategoryController::class, 'index']);
@@ -56,7 +56,10 @@ Route::middleware('auth')->group(function () {
     // category
     Route::resource('/categories', CategoryController::class)->only([
         // only itu mem-filter agar kita tidak bnyk makan controller tdk ke pake sprti : edit, show, create, karna pake modal
-        'index', 'store', 'update', 'destroy'
+        'index',
+        'store',
+        'update',
+        'destroy'
     ])->middleware('UserAccess:1'); // cara bacanya : yg boleh akses menu categories hanya role yg bernilai 1(superadmin)
     //UserAccess dpt dari folder kernel yg middlewarealiases
 
@@ -68,7 +71,8 @@ Route::middleware('auth')->group(function () {
 
     // config
     Route::resource('/config', ConfigController::class)->only([
-        'index', 'update'
+        'index',
+        'update'
     ]);
 
 
@@ -82,7 +86,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

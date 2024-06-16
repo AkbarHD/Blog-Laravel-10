@@ -32,9 +32,11 @@ class CategoryController extends Controller
     public function allCategory()
     {
         // dd($slugCategory);
-        $category = Category::withCount(['Articles' => function (Builder $query) {
-            $query->where('status', 1);
-        }])->latest()->get();
+        $category = Category::withCount([
+            'Articles' => function (Builder $query) {
+                $query->where('status', 1);
+            }
+        ])->latest()->get();
         // return view('front.category.all-category', [
         //     'category' => $category,
         // ]);

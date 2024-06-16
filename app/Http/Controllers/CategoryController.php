@@ -55,7 +55,7 @@ class CategoryController extends Controller
     public function update(Request $request, string $id)
     {
 
-        $data =  $request->validate([
+        $data = $request->validate([
             'name' => 'required|min:3'
         ]);
 

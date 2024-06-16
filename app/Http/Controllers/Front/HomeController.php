@@ -13,10 +13,15 @@ class HomeController extends Controller
     {
         return view('front.home.index', [
             // hanya mengambil data categeory terbaru(descending) dan ngambil 1 saja
-            'latest_post' => Article::with(['User', 'Category'])->whereStatus(1)->latest()->first(), // ini buat yg gambar besar 
+            'latest_post' => Article::with(['User', 'Category'])->whereStatus(1)->latest()->first(), // ini buat yg gambar besar
             // ambil semua data article mulai dri yg terbar
-            'article'     =>  Article::with(['User', 'Category'])->where('status', 1)->latest()->simplePaginate(4),
+            'article' => Article::with(['User', 'Category'])->where('status', 1)->latest()->simplePaginate(4),
             // 'categories'  => Category::latest()->get(),
+            // 'categories' => Category::withCount([
+            //     'Articles' => function (Builder $query) {
+            //         $query->where('status', 1);
+            //     }
+            // ])->take(6)->latest()->get(),
             // 'category_navbar' => Category::latest()->take(3)->get(), // udh kita bikin di service
         ]);
     }

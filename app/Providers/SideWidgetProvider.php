@@ -36,9 +36,11 @@ class SideWidgetProvider extends ServiceProvider
             //     $query->where('status', 1);
             // }])->latest()->get();]
 
-            $category = Category::withCount(['Articles' => function (Builder $query) {
-                $query->where('status', 1);
-            }])->take(6)->latest()->get();
+            $category = Category::withCount([
+                'Articles' => function (Builder $query) {
+                    $query->where('status', 1);
+                }
+            ])->take(6)->latest()->get();
 
             $view->with('categories', $category);
         });
