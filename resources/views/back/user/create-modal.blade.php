@@ -34,26 +34,27 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="name">Password</label>
-                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
-                            id="password" value="{{ old('password') }}">
-                        @error('password')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
+                          <label for="name">Password</label>
+                          <input type="password" class="form-control @error('password') is-invalid @enderror"
+                              name="password" id="password" value="{{ old('password') }}">
+                          @error('password')
+                              <div class="invalid-feedback">
+                                  {{ $message }}
+                              </div>
+                          @enderror
+                      </div>
 
-                    <div class="form-group">
-                        <label for="name">Konfirmasi password</label>
-                        <input type="password" class="form-control @error('konfirmasi_password') is-invalid @enderror" name="password_confirmation"
-                            id="konfirmasi_password" value="{{ old('password_confirmation') }}">
-                        @error('password_confirmation')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
+                      <div class="form-group">
+                          <label for="name">Konfirmasi password</label>
+                          <input type="password" class="form-control @error('konfirmasi_password') is-invalid @enderror"
+                              name="password_confirmation" id="konfirmasi_password"
+                              value="{{ old('password_confirmation') }}">
+                          @error('password_confirmation')
+                              <div class="invalid-feedback">
+                                  {{ $message }}
+                              </div>
+                          @enderror
+                      </div>
                       <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                           <button type="submit" class="btn btn-success">Save</button>

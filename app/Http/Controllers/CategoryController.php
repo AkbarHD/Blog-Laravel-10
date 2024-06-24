@@ -14,7 +14,7 @@ class CategoryController extends Controller
     public function index()
     {
         return view('back.category.index', [
-            //            bisa peke orderby / latest jg bisa (dia mngmbil descending) 
+            //            bisa peke orderby / latest jg bisa (dia mngmbil descending)
             'categories' => Category::latest()->get(), // ketika mengetikan ini otomatis dia use otomastis modelsnya
         ]);
     }
@@ -28,12 +28,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $data =  $request->validate([
+        $data = $request->validate([
             'name' => 'required|min:3'
         ]);
 
         // Str Harus di import dl, click kanan aja Str nya lalu import namespace
-        // cara ini lbh efektif 
+        // cara ini lbh efektif
         $data['name'] = $request->name;
         $data['slug'] = Str::slug($data['name']); // data slug ini otomatis dapat dari name
 
@@ -60,7 +60,7 @@ class CategoryController extends Controller
         ]);
 
         // Str Harus di import dl, click kanan aja Str nya lalu import namespace
-        // cara ini lbh efektif 
+        // cara ini lbh efektif
         $data['name'] = $request->name;
         $data['slug'] = Str::slug($data['name']); // data slug ini otomatis dapat dari nane
 
