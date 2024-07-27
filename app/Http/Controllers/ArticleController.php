@@ -21,7 +21,7 @@ class ArticleController extends Controller
         // karna yajra itu ajax maka,
         // jika ada request ajax maka tampilkan data article
         if (request()->ajax()) {
-            $article =  Article::with('Category')->latest()->get(); //masuk ke datatable serverside
+            $article = Article::with('Category')->latest()->get(); //masuk ke datatable serverside
 
             return DataTables::of($article) // lali keluarkan isi $acrtilce
                 // karna pake server side kita harus konfig lagi utk relasi database karna kalau tidak dia 0
@@ -41,14 +41,14 @@ class ArticleController extends Controller
                     // kalo htmlnya di dlm php(return) itu di akalin dgn tdk menggunakan url{{  }}, tp lansgung saja
                     return '
                         <div class="text-center">
-                            <a href="article/' . $article->id . '" class="btn btn-success">Detail</a> 
+                            <a href="article/' . $article->id . '" class="btn btn-success">Detail</a>
                             <a href="article/' . $article->id . '/edit" class="btn btn-warning">Edit</a>
                             <a href="#" onClick="deleteArticle(this)" data-id="' . $article->id . '" class="btn btn-danger">Delete</a>
                         </div>';
                     // yg detail a href dia otomatis ke show karna dia tdk punya method tp dia punya parameter id
                     // yg edit tambahkan edit agar beda dgn detail
                     // this utk mengambil data-id artinya onclick="deleteArticle(berdsarkan id)"
-                    // arahkan ke Controller article/ yg mempunayai paramter id  
+                    // arahkan ke Controller article/ yg mempunayai paramter id
                 })
                 ->rawColumns(['category_id', 'status', 'button'])
                 ->make();
@@ -78,7 +78,7 @@ class ArticleController extends Controller
         // utk mnggambil smua validasi yg sdh kita atur di ArticleRequest
         $data = $request->validated(); //ini sbenrya tdk ada juga bisa
 
-        $file = $request->file('img'); // name input :utk mngmbil smua identitas 
+        $file = $request->file('img'); // name input :utk mngmbil smua identitas
         $fileName = uniqid() . '.' . $file->getClientOriginalExtension(); // utk mndptkan extension gmbr yg kta masukan
         $file->storeAs('public/backk/' . $fileName); // diletakan di folder Storage/app/publick/back isinya : 234234.jpg
         $data['title'] = $request->title;
@@ -116,8 +116,8 @@ class ArticleController extends Controller
     {
         // ini folder dan file
         return view('back.article.update', [
-            'article'       => Article::find($id), // ambil article berdasarkan id
-            'categories'    => Category::get(), //fungsi ini unutk mengambil di pilih kategori di select create
+            'article' => Article::find($id), // ambil article berdasarkan id
+            'categories' => Category::get(), //fungsi ini unutk mengambil di pilih kategori di select create
         ]);
     }
 
@@ -130,13 +130,13 @@ class ArticleController extends Controller
         $data = $request->validated();
 
         if ($request->hasFile('img')) { // jika user ganti gambar
-            $file = $request->file('img'); // name input :utk mngmbil smua identitas 
+            $file = $request->file('img'); // name input :utk mngmbil smua identitas
             $fileName = uniqid() . '.' . $file->getClientOriginalExtension(); // utk mndptkan extension gmbr yg kta masukan
-            $file->storeAs('public/backk/' . $fileName); // diletakan di Storage/publick/back isinya : 234234.jpg 
+            $file->storeAs('public/backk/' . $fileName); // diletakan di Storage/publick/back isinya : 234234.jpg
 
             //Hapus File Lama
             // Storagenya harus di hibungkan yg use Illuminate\Support\Facades\Storage
-            Storage::delete('public/back/' . $request->oldImg); // arahkan pathnya yg di storage bkn yg di public 
+            Storage::delete('public/back/' . $request->oldImg); // arahkan pathnya yg di storage bkn yg di public
 
             $data['img'] = $fileName; // yg akan masuk ke database
         } else { //kalo tdk updload gambar baru field imgnya ttp pake yg lama
@@ -166,7 +166,7 @@ class ArticleController extends Controller
         // cari data article berdasarkan id
         // ini ikutin cara novi
         $data = Article::find($id);
-        Storage::delete('public/backk/' . $data->img); // arahkan pathnya yg di storage bkn yg di public 
+        Storage::delete('public/backk/' . $data->img); // arahkan pathnya yg di storage bkn yg di public
         // File::delete('media/' . $data->desc);
         $data->delete();
 

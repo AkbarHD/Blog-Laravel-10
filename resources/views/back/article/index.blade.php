@@ -13,8 +13,6 @@
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Articles</h1>
-
-
         </div>
 
         {{-- grafik tidak perlu --}}
@@ -129,6 +127,7 @@
             $('#dataTable').DataTable({
                 processing: true,
                 serverside: true,
+                // url sekarang itu ke ArticleController index
                 ajax: '{{ url()->current() }}', // jd tdk perlu bikin method table, kita memakai current artinya(url sekarang)
                 columns: [
 
